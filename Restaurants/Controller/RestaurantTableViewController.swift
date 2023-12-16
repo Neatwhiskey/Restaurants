@@ -8,10 +8,6 @@
 import UIKit
 
 class RestaurantTableViewController: UITableViewController {
-
-    enum Section {
-        case all
-    }
     
     var restaurants:[Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend", isFavorite: false),
@@ -59,11 +55,11 @@ class RestaurantTableViewController: UITableViewController {
 
     // MARK: - UITableView Diffable Data Source
     
-    func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
+    func configureDataSource() -> RestaurantDiffableDataSource {
         
-        let cellIdentifier = "favoritecell"
+        let cellIdentifier = "datacell"
         
-        let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
+        let dataSource = RestaurantDiffableDataSource(
             tableView: tableView,
             cellProvider: {  tableView, indexPath, restaurant in
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
@@ -80,6 +76,8 @@ class RestaurantTableViewController: UITableViewController {
         
         return dataSource
     }
+    
+   
     
     // MARK: - UITableViewDelegate Protocol
     
@@ -132,5 +130,56 @@ class RestaurantTableViewController: UITableViewController {
         
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        guard let restaurant = self.dataSource.itemIdentifier(for: indexPath)else{
+            return UISwipeActionsConfiguration()
+        }
+        
+            //DeleteAction
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,sourceView,completionHandler) in
+            var snapShot = self.dataSource.snapshot()
+            snapShot.deleteItems([restaurant])
+            self.dataSource.apply(snapShot,animatingDifferences: true)
+            
+                //call completionhandler to dismiss the action button
+            completionHandler(true)
+            
+        }
+        
+            //share action
+        let shareAction = UIContextualAction(style: .normal, title: "share"){(action,sourceView,completionHandler) in
+            let defaultText = "Just checking in at " + restaurant.name
+            let activityController : UIActivityViewController
+            
+            if let imageToShare = UIImage(named: restaurant.image){
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare],applicationActivities: nil)
+            }else{
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+                
+            }
+            
+            if let popoverPresentationController = activityController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverPresentationController.sourceView = cell
+                    popoverPresentationController.sourceRect = cell.bounds
+                }
+            }
+            
+            self.present(activityController, animated: true, completion:nil)
+            completionHandler(true)
+        }
+        shareAction.backgroundColor = UIColor.systemOrange
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
+        
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        
+            //configure both actions as swipe actions
+        let swipeActionConfiguration = UISwipeActionsConfiguration(actions: [deleteAction,shareAction])
+        return swipeActionConfiguration
     }
 }
