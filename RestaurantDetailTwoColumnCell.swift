@@ -9,6 +9,7 @@ import UIKit
 
 class RestaurantDetailTwoColumnCell: UITableViewCell {
 
+ dev
     @IBOutlet var column1TitleLabel: UILabel!{
         didSet{
             column1TitleLabel.text = column1TitleLabel.text?.uppercased()
@@ -31,6 +32,8 @@ class RestaurantDetailTwoColumnCell: UITableViewCell {
             column2TextLabel.numberOfLines = 0
         }
     }
+
+ main
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
