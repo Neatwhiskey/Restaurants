@@ -8,6 +8,28 @@
 import UIKit
 
 class RestaurantDetailHeaderView: UIView {
+ dev
+    
+    @IBOutlet var headerImageView: UIImageView!
+    @IBOutlet var headerRestaurantNameLabel: UILabel!{
+        didSet{
+            headerRestaurantNameLabel.numberOfLines = 0
+            
+            if let customFont = UIFont(name: "Nunito-Bold", size: 40.0){
+                headerRestaurantNameLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: customFont)
+            }
+        }
+    }
+    @IBOutlet var headerTypeLabel: UILabel!{
+        didSet{
+            if let customFont = UIFont(name: "Nunito-Bold", size: 20.0){
+                headerTypeLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: customFont)
+            }
+        }
+    }
+    @IBOutlet var heartButton: UIButton!
+=======
+ main
 
     /*
     // Only override draw() if you perform custom drawing.
