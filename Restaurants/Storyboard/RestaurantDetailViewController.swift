@@ -15,14 +15,18 @@ class RestaurantDetailViewController: UIViewController{
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     @IBOutlet var tableView: UITableView!
     var restaurants: Restaurant = Restaurant()
+    
+    //MARK: - View Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        navigationController?.navigationBar.prefersLargeTitles = false
+        tableView.contentInsetAdjustmentBehavior = .never
         
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.hidesBarsOnSwipe = false
             //configure header view
         headerView.headerRestaurantNameLabel.text = restaurants.name
         headerView.headerTypeLabel.text = restaurants.type
@@ -32,19 +36,13 @@ class RestaurantDetailViewController: UIViewController{
         headerView.heartButton.setImage(UIImage(named: heartImage), for: .normal)
         
     }
-
-
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    */
 
 }
  
