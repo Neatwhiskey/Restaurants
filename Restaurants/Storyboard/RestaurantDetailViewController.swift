@@ -7,8 +7,9 @@
 
 import UIKit
 
- dev
+ 
 class RestaurantDetailViewController: UIViewController{
+    
     
 
     @IBOutlet var headerView: RestaurantDetailHeaderView!
@@ -22,7 +23,7 @@ class RestaurantDetailViewController: UIViewController{
         tableView.separatorStyle = .none
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        //configure header view
+            //configure header view
         headerView.headerRestaurantNameLabel.text = restaurants.name
         headerView.headerTypeLabel.text = restaurants.type
         headerView.headerImageView.image = UIImage(named: restaurants.image)
@@ -30,15 +31,9 @@ class RestaurantDetailViewController: UIViewController{
         headerView.heartButton.tintColor = restaurants.isFavorite ? .systemYellow : .white
         headerView.heartButton.setImage(UIImage(named: heartImage), for: .normal)
         
-=======
-class RestaurantDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
- main
-
-        // Do any additional setup after loading the view.
     }
+
+
     
 
     /*
@@ -52,7 +47,7 @@ class RestaurantDetailViewController: UIViewController {
     */
 
 }
- dev
+ 
 
 extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,5 +77,4 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
     
     
 }
-=======
- main
+

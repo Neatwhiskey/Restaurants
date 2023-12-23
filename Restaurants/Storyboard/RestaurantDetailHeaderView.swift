@@ -8,7 +8,7 @@
 import UIKit
 
 class RestaurantDetailHeaderView: UIView {
- dev
+ 
     
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var headerRestaurantNameLabel: UILabel!{
@@ -28,8 +28,7 @@ class RestaurantDetailHeaderView: UIView {
         }
     }
     @IBOutlet var heartButton: UIButton!
-=======
- main
+
 
     /*
     // Only override draw() if you perform custom drawing.
