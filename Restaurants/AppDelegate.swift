@@ -14,6 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //MARK: - Customizing the back button image of the navigation bar
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        
+        //Creating the back button image
+        var backButtonImage = UIImage(systemName: "arrow.backwards", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20.0, weight: .bold))
+        
+        // setting the created back button to the navigation bar's back button
+        backButtonImage = backButtonImage?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0))
+        navBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+        
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        
         return true
     }
 
