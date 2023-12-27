@@ -210,10 +210,10 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54K-w9-zfo">
-                                            <rect key="frame" x="309" y="10" width="71" height="50"/>
+                                            <rect key="frame" x="309.33333333333331" y="55" width="70.666666666666686" height="31"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="71" id="SPk-ob-hgD"/>
-                                                <constraint firstAttribute="height" constant="50" id="X3f-yr-DsB"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="SPk-ob-hgD"/>
+                                                <constraint firstAttribute="height" constant="31" id="X3f-yr-DsB"/>
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
@@ -226,6 +226,7 @@
                                     <constraints>
                                         <constraint firstItem="WPN-QK-Te7" firstAttribute="top" secondItem="B56-4g-vJc" secondAttribute="top" id="6Ut-a3-5ZI"/>
                                         <constraint firstItem="WPN-QK-Te7" firstAttribute="leading" secondItem="B56-4g-vJc" secondAttribute="leading" id="Akj-IV-ql9"/>
+                                        <constraint firstItem="54K-w9-zfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B56-4g-vJc" secondAttribute="leading" constant="20" symbolic="YES" id="Av7-3y-iyq"/>
                                         <constraint firstAttribute="trailing" secondItem="Yew-cB-guJ" secondAttribute="trailing" id="KPa-tf-AA3"/>
                                         <constraint firstAttribute="trailing" secondItem="WPN-QK-Te7" secondAttribute="trailing" id="KTA-Ru-2Jq"/>
                                         <constraint firstItem="pqP-Fb-FHj" firstAttribute="leading" secondItem="B56-4g-vJc" secondAttribute="leading" constant="20" id="TgJ-OG-aFa"/>
@@ -234,7 +235,7 @@
                                         <constraint firstAttribute="bottom" secondItem="WPN-QK-Te7" secondAttribute="bottom" id="hRP-LJ-Frn"/>
                                         <constraint firstAttribute="trailing" secondItem="54K-w9-zfo" secondAttribute="trailing" constant="10" id="lWt-G4-8ZR"/>
                                         <constraint firstAttribute="bottom" secondItem="pqP-Fb-FHj" secondAttribute="bottom" constant="20" id="nDE-DO-SSB"/>
-                                        <constraint firstItem="54K-w9-zfo" firstAttribute="top" secondItem="B56-4g-vJc" secondAttribute="top" constant="10" id="y3f-2f-V3A"/>
+                                        <constraint firstItem="54K-w9-zfo" firstAttribute="top" secondItem="B56-4g-vJc" secondAttribute="top" constant="55" id="y3f-2f-V3A"/>
                                         <constraint firstItem="Yew-cB-guJ" firstAttribute="top" secondItem="B56-4g-vJc" secondAttribute="top" id="yUY-4M-L2w"/>
                                         <constraint firstAttribute="bottom" secondItem="Yew-cB-guJ" secondAttribute="bottom" id="yaw-dB-WUQ"/>
                                     </constraints>
