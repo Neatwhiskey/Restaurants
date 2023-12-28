@@ -231,7 +231,7 @@ class RestaurantTableViewController: UITableViewController {
         if segue.identifier == "showRestaurantDetail"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.restaurants = self.restaurants[indexPath.row]
+                destinationController.restaurant = self.restaurants[indexPath.row]
             }
         }
     }

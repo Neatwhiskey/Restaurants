@@ -11,6 +11,8 @@
 		130BF8DD2B378CB700E6735B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130BF8DC2B378CB700E6735B /* NavigationController.swift */; };
 		1382CF292B2F6ABD004E0FF4 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1382CF282B2F6ABD004E0FF4 /* RestaurantDetailViewController.swift */; };
 		1382CF2D2B2F74D3004E0FF4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */; };
+		138B19A52B39F6B80065F5F7 /* RestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B19A42B39F6B80065F5F7 /* RestaurantDetailMapCell.swift */; };
+		138B19A72B3A108D0065F5F7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B19A62B3A108D0065F5F7 /* MapViewController.swift */; };
 		13D6B9A72B32334D00380144 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D6B9A52B32334D00380144 /* Nunito-Bold.ttf */; };
 		13D6B9A82B32334D00380144 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D6B9A62B32334D00380144 /* Nunito-Regular.ttf */; };
 		13D6B9AA2B323D9E00380144 /* RestaurantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6B9A92B323D9E00380144 /* RestaurantDetailHeaderView.swift */; };
@@ -31,6 +33,8 @@
 		130BF8DC2B378CB700E6735B /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1382CF282B2F6ABD004E0FF4 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewController.swift; path = Restaurants/Storyboard/RestaurantDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		138B19A42B39F6B80065F5F7 /* RestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailMapCell.swift; sourceTree = SOURCE_ROOT; };
+		138B19A62B3A108D0065F5F7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		13D6B9A52B32334D00380144 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		13D6B9A62B32334D00380144 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		13D6B9A92B323D9E00380144 /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailHeaderView.swift; path = Restaurants/Storyboard/RestaurantDetailHeaderView.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +132,7 @@
 		F49E012526CA14E3000B2AD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				138B19A62B3A108D0065F5F7 /* MapViewController.swift */,
 				1382CF282B2F6ABD004E0FF4 /* RestaurantDetailViewController.swift */,
 				F48D555A2536BFE000CE6DE4 /* RestaurantTableViewController.swift */,
 				130BF8DC2B378CB700E6735B /* NavigationController.swift */,
@@ -138,6 +143,7 @@
 		F49E012626CA372E000B2AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				138B19A42B39F6B80065F5F7 /* RestaurantDetailMapCell.swift */,
 				13DB92B82B3604BA0046D11A /* RestaurantDetailTwoColumnCell.swift */,
 				13DBCE152B34DEB4008744A4 /* RestaurantDetailTextCell.swift */,
 				13D6B9A92B323D9E00380144 /* RestaurantDetailHeaderView.swift */,
@@ -245,10 +251,12 @@
 				F48D55452536BAE700CE6DE4 /* AppDelegate.swift in Sources */,
 				13DB92B92B3604BA0046D11A /* RestaurantDetailTwoColumnCell.swift in Sources */,
 				F48D55472536BAE700CE6DE4 /* SceneDelegate.swift in Sources */,
+				138B19A52B39F6B80065F5F7 /* RestaurantDetailMapCell.swift in Sources */,
 				13DE0E262B2DDD94007AE35C /* RestaurantDiffableDataSource.swift in Sources */,
 				1382CF292B2F6ABD004E0FF4 /* RestaurantDetailViewController.swift in Sources */,
 				13D6B9AA2B323D9E00380144 /* RestaurantDetailHeaderView.swift in Sources */,
 				F48D555B2536BFE000CE6DE4 /* RestaurantTableViewController.swift in Sources */,
+				138B19A72B3A108D0065F5F7 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
