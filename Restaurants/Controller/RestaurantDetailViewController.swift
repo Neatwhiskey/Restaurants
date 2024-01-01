@@ -1,22 +1,22 @@
-//
-//  RestaurantDetailViewController.swift
-//  Restaurants
-//
-//  Created by Jamaaldeen Opasina on 17/12/2023.
-//
+    //
+    //  RestaurantDetailViewController.swift
+    //  Restaurants
+    //
+    //  Created by Jamaaldeen Opasina on 17/12/2023.
+    //
 
 import UIKit
 
- 
+
 class RestaurantDetailViewController: UIViewController{
     
     
-
+    
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     @IBOutlet var tableView: UITableView!
     var restaurant: Restaurant = Restaurant()
     
-    //MARK: - View Controller lifecycle
+        //MARK: - View Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +48,7 @@ class RestaurantDetailViewController: UIViewController{
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier{
         case "showMap":
@@ -67,7 +67,7 @@ class RestaurantDetailViewController: UIViewController{
     }
 }
 
- 
+
 
 extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate{
     
@@ -85,14 +85,14 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             cell.descriptionLabel.text = restaurant.description
             
             return cell
-        
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTwoColumnCell.self), for: indexPath) as! RestaurantDetailTwoColumnCell
             cell.column1TextLabel.text = "Address"
             cell.column1TextLabel.text = restaurant.location
             cell.column2TitleLabel.text = "Phone Number"
             cell.column2TextLabel.text = restaurant.phone
-        
+            
             return cell
             
         case 2:
