@@ -11,6 +11,7 @@ class RestaurantDetailHeaderView: UIView {
  
     
     @IBOutlet var headerImageView: UIImageView!
+    @IBOutlet var ratingImageView: UIImageView!
     @IBOutlet var headerRestaurantNameLabel: UILabel!{
         didSet{
             headerRestaurantNameLabel.numberOfLines = 0
