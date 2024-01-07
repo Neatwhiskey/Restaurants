@@ -14,6 +14,7 @@ class RestaurantDetailViewController: UIViewController{
     
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var favoriteBarButton: UIBarButtonItem!
     var restaurant: Restaurant = Restaurant()
     
         //MARK: - View Controller lifecycle
@@ -28,13 +29,22 @@ class RestaurantDetailViewController: UIViewController{
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.hidesBarsOnSwipe = false
         navigationItem.backButtonTitle = ""
+        
+        tableView.contentInsetAdjustmentBehavior = .never
+        
+        if let rating = restaurant.rating{
+            headerView.ratingImageView.image = UIImage(named: rating.image)
+        }
+        
+        configureFavoriteIcon()
+        
             //configure header view
         headerView.headerRestaurantNameLabel.text = restaurant.name
         headerView.headerTypeLabel.text = restaurant.type
-        headerView.headerImageView.image = UIImage(named: restaurant.image)
-        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
-        headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
-        headerView.heartButton.setImage(UIImage(named: heartImage), for: .normal)
+        headerView.headerImageView.image = UIImage(data: restaurant.image)
+        //let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
+        //headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
+        //headerView.heartButton.setImage(UIImage(named: heartImage), for: .normal)
         
     }
     
@@ -79,6 +89,10 @@ class RestaurantDetailViewController: UIViewController{
             if let rating = Restaurant.Rating(rawValue: identifier){
                 self.restaurant.rating = rating
                 self.headerView.ratingImageView.image = UIImage(named: rating.image)
+                
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                    appDelegate.saveContext()
+                }
             }
             let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
             self.headerView.ratingImageView.transform = scaleTransform
@@ -90,6 +104,25 @@ class RestaurantDetailViewController: UIViewController{
             },completion: nil)
         })
                 }
+    
+    @IBAction func saveFavorite() {
+        
+        restaurant.isFavorite.toggle()
+        
+        configureFavoriteIcon()
+        
+            // Save the change to the database
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
+    }
+    
+    func configureFavoriteIcon() {
+        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
+        let heartIconConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold)
+        favoriteBarButton.image = UIImage(systemName: heartImage, withConfiguration: heartIconConfiguration)
+        favoriteBarButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
+    }
     
                 
 }
@@ -109,7 +142,8 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         switch indexPath.row{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
-            cell.descriptionLabel.text = restaurant.description
+            cell.descriptionLabel.text = restaurant.summary
+            cell.selectionStyle = .none
             
             return cell
             
@@ -120,11 +154,15 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             cell.column2TitleLabel.text = "Phone Number"
             cell.column2TextLabel.text = restaurant.phone
             
+            cell.selectionStyle = .none
+            
+            
             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
             cell.configure(location: restaurant.location)
+            cell.selectionStyle = .none
             
             
             return cell

@@ -1,14 +1,22 @@
 //
-//  NewRestaurantTableViewController.swift
+//  NewRestaurantController.swift
 //  Restaurants
 //
 //  Created by Jamaaldeen Opasina on 05/01/2024.
 //
 
 import UIKit
+import CoreData
 
-class NewRestaurantTableViewController: UITableViewController{
+class NewRestaurantController: UITableViewController, UINavigationControllerDelegate{
 
+    var restaurant: Restaurant!
+    @IBOutlet var photoImageView: UIImageView!{
+        didSet{
+            photoImageView.layer.cornerRadius = 10.0
+            photoImageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet var nameTextField: RoundedTextField!{
         didSet{
             nameTextField.tag = 1
@@ -48,6 +56,21 @@ class NewRestaurantTableViewController: UITableViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Customize the navigation bar experience
+        if let appearance = navigationController?.navigationBar.standardAppearance{
+            if let customFont = UIFont(name: "Nunito-Bold", size: 40.0){
+                appearance.titleTextAttributes = [.foregroundColor: UIColor(named:"NavigationBarTitle")!]
+                appearance.largeTitleTextAttributes = [.foregroundColor:UIColor(named: "NavigationBarTitle")!, .font: customFont]
+            }
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -60,77 +83,95 @@ class NewRestaurantTableViewController: UITableViewController{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 6
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            let photoSourceRequestController = UIAlertController(title: "", message: "choose your photo source", preferredStyle: .actionSheet)
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action)in
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .camera
+                    
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: {(action) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .photoLibrary
+                    
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            photoSourceRequestController.addAction(cameraAction)
+            photoSourceRequestController.addAction(photoLibraryAction)
+            
+            //for Ipad
+            if let popoverPresentationController = photoSourceRequestController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverPresentationController.sourceView = cell
+                    popoverPresentationController.sourceRect = cell.bounds
+                }
+            }
+            present(photoSourceRequestController, animated: true, completion: nil)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButtonTapped(sender: AnyObject){
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            restaurant = Restaurant(context: appDelegate.persistentContainer.viewContext)
+            restaurant.name = nameTextField.text!
+            restaurant.type = typeTextField.text!
+            restaurant.location = addressTextField.text!
+            restaurant.phone = phoneTextField.text!
+            restaurant.summary = descriptionTextView.text!
+            restaurant.isFavorite = false
+            
+            if let imageData = photoImageView.image?.pngData(){
+                restaurant.image = imageData
+            }
+            print ("saving data to context...")
+            appDelegate.saveContext()
+        }
+        dismiss(animated: true, completion: nil)
     }
-    */
 
 }
 
-extension NewRestaurantTableViewController:UITextFieldDelegate{
-    func textShouldReturn(_ textField: UITextField) -> Bool {
+extension NewRestaurantController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1){
             textField.resignFirstResponder()
             nextTextField.becomeFirstResponder()
         }
         return true
+    }
+}
+
+extension NewRestaurantController: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            photoImageView.image = selectedImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
