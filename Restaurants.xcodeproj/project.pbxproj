@@ -24,6 +24,10 @@
 		13DD64C72B4334F200C3CA6A /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DD64C52B4334F200C3CA6A /* ReviewViewController.swift */; };
 		13DD64D62B43374E00C3CA6A /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DD64D52B43374E00C3CA6A /* RestaurantDetailViewController.swift */; };
 		13DE0E262B2DDD94007AE35C /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE0E252B2DDD94007AE35C /* RestaurantDiffableDataSource.swift */; };
+		13F386932B4DDFB7008B86C7 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F386902B4DDFB7008B86C7 /* WalkthroughViewController.swift */; };
+		13F386942B4DDFB7008B86C7 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F386912B4DDFB7008B86C7 /* WalkthroughPageViewController.swift */; };
+		13F386952B4DDFB7008B86C7 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F386922B4DDFB7008B86C7 /* WalkthroughContentViewController.swift */; };
+		13F386972B4DDFDF008B86C7 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F386962B4DDFDF008B86C7 /* Onboarding.storyboard */; };
 		F43B1C3625382DF300777A57 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B1C3525382DF300777A57 /* RestaurantTableViewCell.swift */; };
 		F48D55452536BAE700CE6DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48D55442536BAE700CE6DE4 /* AppDelegate.swift */; };
 		F48D55472536BAE700CE6DE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48D55462536BAE700CE6DE4 /* SceneDelegate.swift */; };
@@ -50,6 +54,10 @@
 		13DD64C52B4334F200C3CA6A /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		13DD64D52B43374E00C3CA6A /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		13DE0E252B2DDD94007AE35C /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDiffableDataSource.swift; path = Restaurants/Controller/RestaurantDiffableDataSource.swift; sourceTree = SOURCE_ROOT; };
+		13F386902B4DDFB7008B86C7 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		13F386912B4DDFB7008B86C7 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		13F386922B4DDFB7008B86C7 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		13F386962B4DDFDF008B86C7 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F43B1C3525382DF300777A57 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		F48D55412536BAE700CE6DE4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48D55442536BAE700CE6DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +149,9 @@
 		F49E012526CA14E3000B2AD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13F386922B4DDFB7008B86C7 /* WalkthroughContentViewController.swift */,
+				13F386912B4DDFB7008B86C7 /* WalkthroughPageViewController.swift */,
+				13F386902B4DDFB7008B86C7 /* WalkthroughViewController.swift */,
 				13D929E12B48755400CACF5E /* NewRestaurantController.swift */,
 				13DD64D52B43374E00C3CA6A /* RestaurantDetailViewController.swift */,
 				13DD64C52B4334F200C3CA6A /* ReviewViewController.swift */,
@@ -177,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				13DD64C22B43344D00C3CA6A /* Main.storyboard */,
+				13F386962B4DDFDF008B86C7 /* Onboarding.storyboard */,
 				1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */,
 			);
 			path = Storyboard;
@@ -243,6 +255,7 @@
 				13D6B9A82B32334D00380144 /* Nunito-Regular.ttf in Resources */,
 				1382CF2D2B2F74D3004E0FF4 /* Launch Screen.storyboard in Resources */,
 				F48D554E2536BAE900CE6DE4 /* Assets.xcassets in Resources */,
+				13F386972B4DDFDF008B86C7 /* Onboarding.storyboard in Resources */,
 				13DD64C32B43344D00C3CA6A /* Main.storyboard in Resources */,
 				13D6B9A72B32334D00380144 /* Nunito-Bold.ttf in Resources */,
 			);
@@ -257,11 +270,14 @@
 			files = (
 				F49E012426CA12F6000B2AD5 /* Restaurant.swift in Sources */,
 				13D441792B475A0300526CBF /* RoundedTextField.swift in Sources */,
+				13F386942B4DDFB7008B86C7 /* WalkthroughPageViewController.swift in Sources */,
 				130BF8DD2B378CB700E6735B /* NavigationController.swift in Sources */,
 				13DD64C72B4334F200C3CA6A /* ReviewViewController.swift in Sources */,
 				13DBCE162B34DEB4008744A4 /* RestaurantDetailTextCell.swift in Sources */,
 				130BF8DB2B3786CF00E6735B /* UIColor+Ext .swift in Sources */,
 				F43B1C3625382DF300777A57 /* RestaurantTableViewCell.swift in Sources */,
+				13F386932B4DDFB7008B86C7 /* WalkthroughViewController.swift in Sources */,
+				13F386952B4DDFB7008B86C7 /* WalkthroughContentViewController.swift in Sources */,
 				F48D55452536BAE700CE6DE4 /* AppDelegate.swift in Sources */,
 				13DD64D62B43374E00C3CA6A /* RestaurantDetailViewController.swift in Sources */,
 				13D929E22B48755400CACF5E /* NewRestaurantController.swift in Sources */,

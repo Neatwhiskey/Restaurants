@@ -69,6 +69,19 @@ class RestaurantTableViewController: UITableViewController{
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
+            
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
+    
     //MARK: - Core Data
     
     func fetchRestaurantData(searchText: String = ""){
@@ -76,7 +89,7 @@ class RestaurantTableViewController: UITableViewController{
         let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
         
         if !searchText.isEmpty{
-            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchText)
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText)
         }
         
         let sortDesriptor = NSSortDescriptor(key: "name", ascending: true)
