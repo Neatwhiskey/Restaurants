@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol WalkthroughPageViewControllerDelegate: AnyObject {
     func didUpdatePageIndex(currentIndex: Int)
 }
