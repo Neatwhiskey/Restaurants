@@ -831,6 +831,52 @@
             </objects>
             <point key="canvasLocation" x="1743.0769230769231" y="88.862559241706151"/>
         </scene>
+        <!--Discover-->
+        <scene sceneID="9K1-me-fOZ">
+            <objects>
+                <tableViewController id="N3b-9l-1G4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="HE0-y9-swJ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Bts-Kg-ahj">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bts-Kg-ahj" id="ZVd-sC-kEg">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N3b-9l-1G4" id="3dj-rL-nxb"/>
+                            <outlet property="delegate" destination="N3b-9l-1G4" id="eW0-95-qGi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Discover" id="dLs-az-gtt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fG3-0R-1DP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1517" y="762"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="9NY-5P-1lU">
+            <objects>
+                <navigationController id="Djy-uI-sla" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="wand.and.rays" catalog="system" id="VeW-MM-k2w"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K4n-al-wj9">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="N3b-9l-1G4" kind="relationship" relationship="rootViewController" id="Hpd-KJ-a0J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xb6-1c-PmI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="762"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="NRd-Cf-v2n">
             <objects>
@@ -863,7 +909,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="NpH-rd-g2G" kind="relationship" relationship="viewControllers" id="lAy-Br-1Ea"/>
-                        <segue destination="8Aa-aE-DEv" kind="relationship" relationship="viewControllers" id="sba-mX-x31"/>
+                        <segue destination="Djy-uI-sla" kind="relationship" relationship="viewControllers" id="sba-mX-x31"/>
                         <segue destination="zG7-vY-5JL" kind="relationship" relationship="viewControllers" id="9Tr-fu-0Mx"/>
                     </connections>
                 </tabBarController>
@@ -881,16 +927,6 @@
             </objects>
             <point key="canvasLocation" x="-1200" y="-565"/>
         </scene>
-        <!--Discover-->
-        <scene sceneID="0kg-VK-VJE">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Discover" id="8Aa-aE-DEv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="omf-Lp-Og1"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTF-qK-5EG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="609" y="762"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ybI-Om-KRa"/>
@@ -906,6 +942,7 @@
         <image name="newphoto" width="1840" height="1380"/>
         <image name="sad" width="78" height="87"/>
         <image name="tag.fill" catalog="system" width="128" height="118"/>
+        <image name="wand.and.rays" catalog="system" width="128" height="123"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="NavigationBarTitle">
             <color red="0.85490196078431369" green="0.37647058823529411" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

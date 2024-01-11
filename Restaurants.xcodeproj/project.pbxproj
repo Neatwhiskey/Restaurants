@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		130BF8DB2B3786CF00E6735B /* UIColor+Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = 130BF8DA2B3786CF00E6735B /* UIColor+Ext .swift */; };
 		130BF8DD2B378CB700E6735B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130BF8DC2B378CB700E6735B /* NavigationController.swift */; };
+		13482F9B2B5069F200418AD9 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13482F9A2B5069F200418AD9 /* About.storyboard */; };
+		13482F9D2B506A8E00418AD9 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13482F9C2B506A8E00418AD9 /* Discover.storyboard */; };
 		1382CF2D2B2F74D3004E0FF4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */; };
 		138B19A52B39F6B80065F5F7 /* RestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B19A42B39F6B80065F5F7 /* RestaurantDetailMapCell.swift */; };
 		138B19A72B3A108D0065F5F7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138B19A62B3A108D0065F5F7 /* MapViewController.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		130BF8DA2B3786CF00E6735B /* UIColor+Ext .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext .swift"; sourceTree = "<group>"; };
 		130BF8DC2B378CB700E6735B /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		13482F9A2B5069F200418AD9 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		13482F9C2B506A8E00418AD9 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		138B19A42B39F6B80065F5F7 /* RestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailMapCell.swift; sourceTree = SOURCE_ROOT; };
 		138B19A62B3A108D0065F5F7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				13DD64C22B43344D00C3CA6A /* Main.storyboard */,
+				13482F9C2B506A8E00418AD9 /* Discover.storyboard */,
+				13482F9A2B5069F200418AD9 /* About.storyboard */,
 				13F386962B4DDFDF008B86C7 /* Onboarding.storyboard */,
 				1382CF2C2B2F74D3004E0FF4 /* Launch Screen.storyboard */,
 			);
@@ -253,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D6B9A82B32334D00380144 /* Nunito-Regular.ttf in Resources */,
+				13482F9D2B506A8E00418AD9 /* Discover.storyboard in Resources */,
+				13482F9B2B5069F200418AD9 /* About.storyboard in Resources */,
 				1382CF2D2B2F74D3004E0FF4 /* Launch Screen.storyboard in Resources */,
 				F48D554E2536BAE900CE6DE4 /* Assets.xcassets in Resources */,
 				13F386972B4DDFDF008B86C7 /* Onboarding.storyboard in Resources */,
