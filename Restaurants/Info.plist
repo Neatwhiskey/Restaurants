@@ -76,6 +76,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict/>
+	<key>Allows Arbitrary Loads in web content</key>
+	<true/>
 </dict>
 </plist>
