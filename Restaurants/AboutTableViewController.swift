@@ -61,15 +61,14 @@ class AboutTableViewController: UITableViewController {
     }
     
     func openWithSafariViewController(indexPath: IndexPath){
-        guard let linkItem = self.dataSource.itemIdentifier(for: indexPath) else{
-                            return
-                        }
-                
-                        if let url = URL(string:linkItem.link){
-                            let safariController = SFSafariViewController(url: url)
+     guard let linkItem = self.dataSource.itemIdentifier(for: indexPath) else{
+    return
+    }
+    if let url = URL(string:linkItem.link){
+    let safariController = SFSafariViewController(url: url)
                             
-                            present(safariController, animated: true, completion: nil)
-                        }
+    present(safariController, animated: true, completion: nil)
+    }
     }
 
     // MARK: - Table view data source
